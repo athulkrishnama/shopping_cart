@@ -5,7 +5,10 @@ var productHelper = require('../helper/product-helper')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('admin/view-products',{admin:true})
+  productHelper.getAllProducts().then((products)=>{
+    res.render('admin/view-products',{admin:true, products:products})
+  })
+  
 });
 
 
@@ -14,13 +17,15 @@ router.get('/add-product',(req,res)=>{
 })
 
 router.post('/add-product',(req,res)=>{
-  productHelper.addProduct(req.body,(objId)=>{
+  productHelper.addProduct(req.body,async(objId)=>{
     let image = req.files.image
-    image.mv('./public/product-images/' + objId +'.jpg',(err,done)=>{
+    await image.mv('./public/product-images/' + objId +'.jpg',(err,done)=>{
       if(err){
         console.log("error with image ")
       }
     })
+    res.redirect('/admin')
+    
   })
 })
 
