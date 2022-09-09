@@ -1,10 +1,10 @@
 <section>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             {{#each products}}
             <div class="col-md-2 m-2">
                 <div class="card" style="width: 18rem;">
-                    <img src="/product-images/{{this._id}}.jpg" style="height: 8rem; width:18rem;" class="card-img-top" alt="...">
+                    <img src="/product-images/{{this._id}}.jpg" style="height: 8rem; width:100%;" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{this.name}}</h5>
                         <p class="card-text">{{this.desc}}</p>
