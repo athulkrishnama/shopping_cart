@@ -1,13 +1,15 @@
 <section>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             {{#each products}}
-            <div class="col-md-2 m-2">
-                <div class="card" style="width: 18rem;">
+            <div class="col-md-2 col-sm-6 my-2">
+                <div class="card" style="width: 100%;">
                     <img src="/product-images/{{this._id}}.jpg" style="height: 8rem; width:100%;" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{this.name}}</h5>
-                        <p class="card-text">{{this.desc}}</p>
+                        <div style="overflow-y: scroll; height: 4rem; -ms-overflow-style:none;scrollbar-width:none;">
+                            <p class="card-text">{{this.desc}}</p>
+                        </div>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
