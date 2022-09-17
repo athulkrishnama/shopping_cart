@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
     <section>
-      <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+      <form action="/admin/edit-product/{{id}}" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Name</label>
-          <input required type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="exampleInputEmail1"  class="form-label">Name</label>
+          <input required type="text" value="{{product.name}}" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Price</label>
-          <input required type="number" class="form-control" name="price">
+          <input required type="number" class="form-control" value="{{product.price}}" name="price">
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Category</label>
           <select required name="category" id="" class="form-select" aria-label="Default select example">
-            <option selected disabled hidden>Select a category</option>
+            <option disabled selected >Select a category</option>
             <option value="smartphone">Smartphone</option>
             <option value="watch">Watch</option>
             <option value="TWS">TWS</option>
@@ -21,11 +21,12 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Description</label>
-          <input required type="text" class="form-control" name="desc" id="exampleInputPassword1">
+          <input required type="text" class="form-control" value="{{product.desc}}" name="desc" id="">
         </div>
         <div class="mb-3 form-check">
-          <label class="form-label" for="exampleCheck1">Image</label>
-          <input required type="file" class="form-control" name="image" id="exampleCheck1">
+          <label class="form-label" for="exampleCheck1">Image</label><br>
+          <img src="/product-images/{{id}}.jpg" style="height: 8rem; width:8rem;" alt="">
+          <input  type="file" class="form-control" name="image" id="exampleCheck1">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

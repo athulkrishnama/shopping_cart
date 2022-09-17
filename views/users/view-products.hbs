@@ -1,20 +1,26 @@
-<section>
-    <div class="container-fluid">
-        <div class="row">
-            {{#each products}}
-            <div class="col-md-2 col-sm-6 my-2">
-                <div class="card" style="width: 100%;">
-                    <img src="/product-images/{{this._id}}.jpg" style="height: 8rem; width:100%;" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{this.name}}</h5>
-                        <div style="overflow-y: scroll; height: 4rem; -ms-overflow-style:none;scrollbar-width:none;">
-                            <p class="card-text">{{this.desc}}</p>
+<div class="container-fluid">
+    <div class="row">
+        <section>
+            <div class="container">
+                <div class="row">
+                    {{#each products}}
+                    <div class="col-md-3 col-sm-6 my-2">
+                        <div class="card" style="width: 100%;">
+                            <img src="/product-images/{{this._id}}.jpg" style="height: 8rem; width:100%;" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.name}}</h5>
+                                <h3 class="fw-bold">Rs.{{this.price}}</h3>
+                                <h4 class="text-secondary">{{this.category}}</h4>
+                                <div style="overflow-y: scroll; height: 6rem; " class="scroll">
+                                    <p class="card-text">{{this.desc}}</p>
+                                </div>
+                                <a href="#" class="btn btn-primary">Buy Now</a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
+                    {{/each}}
                 </div>
             </div>
-            {{/each}}
-        </div>
+        </section>
     </div>
-</section>
+</div>

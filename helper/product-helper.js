@@ -14,10 +14,24 @@ module.exports = {
             resolve(products)
         })
     },
-    deleteProduct:(id=>{
+    deleteProduct:(id)=>{
         return new Promise((resolve,reject)=>{
             db.get().collection(collections.PRODUCT_COLLECTION).deleteOne({_id:mongodb.ObjectId(id)})
             resolve()
         })
-    })
+    },
+    getProduct:(id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.PRODUCT_COLLECTION).findOne({_id:mongodb.ObjectId(id)}).then((result)=>{
+                resolve(result)
+            })
+        })
+    },
+    updateProduct:(id,details)=>{
+        return new Promise((resolve,reject)=>{
+        db.get().collection(collections.PRODUCT_COLLECTION).updateOne({_id:mongodb.ObjectId(id)},{$set:details}).then(()=>{
+            resolve()
+        })
+        })
+    }
 }
