@@ -25,11 +25,17 @@
         </div>
         <div class="mb-3 form-check">
           <label class="form-label" for="exampleCheck1">Image</label><br>
-          <img src="/product-images/{{id}}.jpg" style="height: 8rem; width:8rem;" alt="">
-          <input  type="file" class="form-control" name="image" id="exampleCheck1">
+          <img id="proImg" src="/product-images/{{id}}.jpg" style="height: 8rem; width:8rem;" alt="">
+          <input onchange="viewimage(event)" type="file" class="form-control" name="image" id="exampleCheck1">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </section>
   </div>
 </div>
+
+<script>
+  function viewimage(event){
+    document.getElementById('proImg').src=URL.createObjectURL(event.target.files[0])
+  }
+</script>

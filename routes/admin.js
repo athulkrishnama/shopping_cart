@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/add-product',(req,res)=>{
-  res.render('admin/add-product')
+  res.render('admin/add-product',{admin:true})
 })
 
 router.post('/add-product',(req,res)=>{
@@ -40,7 +40,7 @@ router.get('/delete-product/:id',(req,res)=>{
 router.get('/edit-product/:id',(req,res)=>{
   let id = req.params.id
   productHelper.getProduct(id).then((product)=>{
-    res.render('admin/edit-product',{product:product,id:id})
+    res.render('admin/edit-product',{product:product,id:id,admin:true})
   })
 
 
