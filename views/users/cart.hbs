@@ -1,1 +1,27 @@
-<h1 class="text-secondary">This is cart</h1>
+<section>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Quatity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">1</th>
+                    <td><img src="/product-images/{{this._id}}.jpg" style="height: 3rem; width:5rem" alt=""></td>
+                    <td>{{this.name}}</td>
+                    <td><button class="btn btn-secondary">-</button>1<button class="btn btn-secondary">+</button></td>
+                    <td><button class="btn btn-danger">Remove</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+
+    </div>
+</section>

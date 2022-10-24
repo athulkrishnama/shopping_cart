@@ -3,11 +3,12 @@ state = {
     db:null
 }
 module.exports.connection = (done)=>{
- const url = 'mongodb://localhost:27017'
+ const url = 'mongodb://0.0.0.0:27017'
  const dbname = 'shoppingcart'
  
  mongoClient.connect(url,(err,data)=>{
     if(err){
+        console.log(err)
        return done(err)
     }
     state.db = data.db(dbname)
